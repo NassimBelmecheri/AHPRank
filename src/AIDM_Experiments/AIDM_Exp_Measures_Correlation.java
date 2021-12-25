@@ -20,8 +20,7 @@ import AIDM_Query.AIDM_SelectionStrategy;
 import AIDM_USERS.AIDM_USERS;
 import AIDM_USERS.AIDM_USERTYPE;
 import AIDM_USERS.AIDM_USER_CHI;
-import AIDM_USERS.AIDM_USER_LEX;
-import AIDM_USERS.AIDM_USER_RANDOM;
+
 import AIDM_Utils.AIDM_Analysis;
 import AIDM_Utils.AIDM_TimeCounter;
 

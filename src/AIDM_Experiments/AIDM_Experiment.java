@@ -12,8 +12,7 @@ import AIDM_Algo_AHPIDM.AIDM_Algorithm;
 import AIDM_Learner.AIDM_Correlation;
 import AIDM_Measures.AIDM_Measure;
 import AIDM_Measures.AIDM_Measures;
-import AIDM_Measures.AIDM_MeasuresFI;
-import AIDM_Measures.AIDM_Measures_SG;
+
 import AIDM_Pattern.AIDM_Pattern;
 import AIDM_Query.AIDM_Heuristics;
 import AIDM_Query.AIDM_Query;
@@ -41,7 +40,7 @@ public class AIDM_Experiment {
 	static long timeout;
 	static AIDM_USERS Oracle;
 	static AIDM_USERS Oracle1;
-	static double C;
+	static double C=0.005;
 	static AIDM_Algorithm algo;
 	static String algoname;
 
@@ -67,20 +66,7 @@ public class AIDM_Experiment {
 		return measures_;
 	}
 
-	public static String getMeasuresFI(AIDM_MeasuresFI[] measures) {
-		String measures_ = "";
-		for (AIDM_MeasuresFI m : measures)
-			measures_ += m + " ";
-		return measures_;
-	}
-
-	public static String getMeasuresSG(AIDM_Measures_SG[] measures) {
-		String measures_ = "";
-		for (AIDM_Measures_SG m : measures)
-			measures_ += m + " ";
-		return measures_;
-	}
-
+	
 	public static void InitS(ArrayList<AIDM_Measure> measures) {
 		S = new HashMap<String, Double>();
 		for (AIDM_Measure m : measures) {
@@ -308,7 +294,7 @@ public class AIDM_Experiment {
 	public void build() {
 
 		algorithmsvm1 = new RankSVM_AlgorithmPassive(learningP);
-		algorithmsvm1.setPramaters(Oracle, h, k, iterations, querysize, C, countersvm, timeout);
+		algorithmsvm1.setPramaters(Oracle, h, k, iterations, querysize, 0.005, countersvm, timeout);
 
 		algorithmahp = new AIDM_AlgoImplementation(learningP, S);
 		algorithmahp.setParameters(Oracle, h, kendallw, k, 0, querysize, counterahp);
