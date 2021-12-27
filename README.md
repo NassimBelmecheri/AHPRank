@@ -32,8 +32,9 @@ Zoo|Vote|Anneal|Chess|Mushroom|T10I10D100K|T40I10D100K|Pumsb|Retail|
 ### Passive Learning 
 java -jar AHPRank_Run_Passive.jar <dataset> <nb runs> <timeout (seconds)>
 ### Active Learning
-
 java -jar AHPRank_Run_Active.jar <dataset> <nb iterations> <timeout (seconds)>
 
-### Measure Correlation
-java -jar AHPRank_Run_Measure_Corr.jar <dataset> 
+### Results
+Results are found in the folder "Results" each column represents the following :
+ρ RankingSVM,ρ AHPRank,Sigma SVM,Sigma AHP,R@10% RankingSVM,R@1% RankingSVM,R@10% AHPRank,R@1% AHPRank,Learning Time RankingSVM,Learning Time AHPRank,Heuristic Selection Time RankingSVM,Heuristic Selection Time AHPRANK
+
