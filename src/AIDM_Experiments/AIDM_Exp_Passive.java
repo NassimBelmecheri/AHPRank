@@ -153,7 +153,7 @@ public class AIDM_Exp_Passive extends AIDM_Experiment {
 		for (int l = 0; l < q1.Patterns.size(); l += training) {
 			ArrayList<AIDM_Pattern> TrainP = strategy.KfoldTrain(q1.Patterns, l, training);
 			Training.add(TrainP);
-			ArrayList<AIDM_Pattern> ValidationP = strategy.KfoldValidation(qvalidation.Patterns, TrainP);
+			ArrayList<AIDM_Pattern> ValidationP = strategy.KfoldValidation(q1.Patterns, TrainP);
 			AIDM_Query q = new AIDM_Query();
 			q.Patterns.addAll(ValidationP);
 			
