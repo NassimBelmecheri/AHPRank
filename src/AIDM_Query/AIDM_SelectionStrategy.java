@@ -81,13 +81,16 @@ public class AIDM_SelectionStrategy implements AIDM_Strategies {
 	
 	public ArrayList<AIDM_Pattern> KfoldValidation(ArrayList<AIDM_Pattern> P, ArrayList<AIDM_Pattern> TrainP) {
 		ArrayList<AIDM_Pattern> T=new ArrayList<AIDM_Pattern>();
-		
-		
-		P.removeAll(TrainP);
-		
-		return P;
-	}
+		HashMap<String,AIDM_Pattern> validationpatterns = new HashMap<String, AIDM_Pattern>();
 
+		for (AIDM_Pattern p : P) {
+			validationpatterns.put(p.getShortname(), p);
+		}
+		for (AIDM_Pattern p: TrainP)
+			validationpatterns.remove(p.getShortname());
+		
+		return new ArrayList<>(validationpatterns.values());
+	}
 	public ArrayList<AIDM_Pattern> SampleTrain(ArrayList<AIDM_Pattern> P, double training) {
 		Collections.shuffle(P);
 		ArrayList<AIDM_Pattern> train = new ArrayList<AIDM_Pattern>(); 
